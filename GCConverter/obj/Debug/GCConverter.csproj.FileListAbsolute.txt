@@ -1,0 +1,11 @@
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GCConverter.csproj.GenerateResource.Cache
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\GCConverter.exe.config
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\GCConverter.exe
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\GCConverter.pdb
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GCConverter.Properties.Resources.resources
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GCConverter.exe
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GCConverter.pdb
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GCConverter.GCConverter.resources
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\GCConverter\GCConverter\bin\Debug\GCConverter.exe.config
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\GCConverter\GCConverter\obj\Debug\GCConverter.exe
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\GCConverter\GCConverter\obj\Debug\GCConverter.pdb

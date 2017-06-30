@@ -1,0 +1,9 @@
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+\\hemitbrukere.helsemn.no\home$\596-11\dokumenter\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
