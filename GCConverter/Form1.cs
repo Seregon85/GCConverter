@@ -130,11 +130,11 @@ namespace GCConverter
                 {
                     bw.BaseStream.Seek(0x3, SeekOrigin.Begin);
                     if (region == "PAL")
-                        bw.Write(0xFF313050);
+                        bw.Write((byte)0x50);
                     else if (region == "NTSC-U")
-                        bw.Write(0xFF313045);
+                        bw.Write((byte)0x45);
                     else if (region == "NTSC-J")
-                        bw.Write(0xFF31304A);
+                        bw.Write((byte)0x4A);
 
                     bw.Close();
                 }
