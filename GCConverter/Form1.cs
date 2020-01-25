@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,76 +18,89 @@ namespace GCConverter
             InitializeComponent();
         }
 
-        public string filename;
+        public string[] filenames;
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Open save file";
             openFileDialog.Filter = "GC save files|*.gci";
+            openFileDialog.Multiselect = true;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filename = openFileDialog.FileName;
-                txtFilename.Text = filename;
-
-                try
+                filenames = openFileDialog.FileNames;
+                txtFilename.Text = String.Join("; ", filenames);
+                if (filenames.Length > 1)
                 {
-                    FileStream fs = new FileStream(filename, FileMode.Open);
-                    int hexIn;
-                    string hex;
-                    string fileContent = "";
-
-                    for (int i = 0; i <= 3; i++)
-                    {
-                        hexIn = fs.ReadByte();
-                        hex = string.Format("{0:X2}", hexIn);
-                        fileContent += hex;
-                    }
-
-                    fs.Close();
-
-                    if (fileContent.Substring(6, 2) == "50") //PAL save file
-                    {
-                        rdPAL.Enabled = false;
-                        rdNTSCU.Enabled = true;
-                        rdNTSCJ.Enabled = true;
-                        rdNTSCU.Checked = true;
-                        btnConvert.Enabled = true;
-                        txtStatus.Text = "Selected file is PAL. ";
-                    }
-                    else if (fileContent.Substring(6, 2) == "45") //NTSC-U save file
-                    {
-                        rdPAL.Enabled = true;
-                        rdNTSCU.Enabled = false;
-                        rdNTSCJ.Enabled = true;
-                        rdPAL.Checked = true;
-                        btnConvert.Enabled = true;
-                        txtStatus.Text = "Selected file is NTSC-U. ";
-                    }
-                    else if (fileContent.Substring(6, 2) == "4A") //NTSC-J save file
-                    {
-                        rdPAL.Enabled = true;
-                        rdNTSCU.Enabled = true;
-                        rdNTSCJ.Enabled = false;
-                        rdNTSCU.Checked = true;
-                        btnConvert.Enabled = true;
-                        txtStatus.Text = "Selected file is NTSC-J. ";
-                    }
-                    else
-                    {
-                        rdPAL.Enabled = false;
-                        rdNTSCU.Enabled = false;
-                        rdNTSCJ.Enabled = false;
-                        rdPAL.Checked = false;
-                        rdNTSCU.Checked = false;
-                        rdNTSCJ.Checked = false;
-                        btnConvert.Enabled = false;
-                        txtStatus.Text = "Invalid Gamecube save file. ";
-                    }
+                    rdPAL.Enabled = true;
+                    rdNTSCU.Enabled = true;
+                    rdNTSCJ.Enabled = true;
+                    rdNTSCU.Checked = true;
+                    btnConvert.Enabled = true;
+                    txtStatus.Text = "Multiple files selected. ";
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+
+                    try
+                    {
+                        FileStream fs = new FileStream(filenames[0], FileMode.Open);
+                        int hexIn;
+                        string hex;
+                        string fileContent = "";
+
+                        for (int i = 0; i <= 3; i++)
+                        {
+                            hexIn = fs.ReadByte();
+                            hex = string.Format("{0:X2}", hexIn);
+                            fileContent += hex;
+                        }
+
+                        fs.Close();
+
+                        if (fileContent.Substring(6, 2) == "50") //PAL save file
+                        {
+                            rdPAL.Enabled = false;
+                            rdNTSCU.Enabled = true;
+                            rdNTSCJ.Enabled = true;
+                            rdNTSCU.Checked = true;
+                            btnConvert.Enabled = true;
+                            txtStatus.Text = "Selected file is PAL. ";
+                        }
+                        else if (fileContent.Substring(6, 2) == "45") //NTSC-U save file
+                        {
+                            rdPAL.Enabled = true;
+                            rdNTSCU.Enabled = false;
+                            rdNTSCJ.Enabled = true;
+                            rdPAL.Checked = true;
+                            btnConvert.Enabled = true;
+                            txtStatus.Text = "Selected file is NTSC-U. ";
+                        }
+                        else if (fileContent.Substring(6, 2) == "4A") //NTSC-J save file
+                        {
+                            rdPAL.Enabled = true;
+                            rdNTSCU.Enabled = true;
+                            rdNTSCJ.Enabled = false;
+                            rdNTSCU.Checked = true;
+                            btnConvert.Enabled = true;
+                            txtStatus.Text = "Selected file is NTSC-J. ";
+                        }
+                        else
+                        {
+                            rdPAL.Enabled = false;
+                            rdNTSCU.Enabled = false;
+                            rdNTSCJ.Enabled = false;
+                            rdPAL.Checked = false;
+                            rdNTSCU.Checked = false;
+                            rdNTSCJ.Checked = false;
+                            btnConvert.Enabled = false;
+                            txtStatus.Text = "Invalid Gamecube save file. ";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
@@ -106,15 +119,19 @@ namespace GCConverter
                 else
                     region = "PAL";
 
-                if (File.Exists(filename + ".BAK"))
-                    File.Delete(filename + ".BAK");
+                txtStatus.ScrollBars = ScrollBars.Vertical;
+                foreach (string filename in filenames)
+                {
+                    if (File.Exists(filename + ".BAK"))
+                        File.Delete(filename + ".BAK");
 
-                File.Copy(filename, filename + ".BAK");
+                    File.Copy(filename, filename + ".BAK");
 
-                writeRegion(filename, region);
+                    writeRegion(filename, region);
 
-                txtStatus.Text += "\r\nThe save file " + filename + " was converted successfully to " + region + ".";
-                txtStatus.Text += "\r\nBackup of original file was saved as " + filename + ".BAK.";
+                    txtStatus.Text += "\r\n\r\nThe save file " + Path.GetFileName(filename) + " was converted successfully to " + region + ". ";
+                    txtStatus.Text += "Backup of original file was saved as " + Path.GetFileName(filename) + ".BAK.";
+                }
             }
             catch (Exception ex)
             {
